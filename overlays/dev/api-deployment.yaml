@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+spec:
+  template:
+    spec:
+      containers:
+        resources:
+          requests: # Cuanto le debo garantizar a cada pod
+            cpu: "100m"
+            memory: "200Mi"
+          limits: # Cuanto le puedo dar como maximo a cada pod
+            cpu: "200m"
+ 
