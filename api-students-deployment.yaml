@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api-students
+  name: api-students
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-students
+  template:
+    metadata:
+      labels:
+        app: api-students
+    spec:
+      containers:
+        - image: spentrook/k8s-tarea-1-ozami-guevara:latest
+          name: k8s-tarea-1-ozami-guevara
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql-db/students_k8s?user=root&password=root&allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 35
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 40
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 40
+            periodSeconds: 5
+          resources:
+            requests: # Cuanto le debo garantizar a cada pod
+              cpu: 100m
+              memory: 200Mi
+            limits: # Cuanto le puedo dar como maximo a cada pod
+              cpu: 500m

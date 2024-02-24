@@ -1,12 +1,13 @@
+# Horizontal pod autoscaler
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: api
+  name: api-students-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: api
+    name: api-students
   minReplicas: 1
   maxReplicas: 3
   metrics:
