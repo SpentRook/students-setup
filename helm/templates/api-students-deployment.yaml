@@ -15,7 +15,7 @@ spec:
         app: api-students
     spec:
       containers:
-        - image: spentrook/k8s-tarea-1-ozami-guevara:latest
+        - image: spentrook/k8s-tarea-1-ozami-guevara:${{ .Values.version }}
           name: k8s-tarea-1-ozami-guevara
           ports:
             - containerPort: 8080
