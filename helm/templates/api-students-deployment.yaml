@@ -21,7 +21,7 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql-db/students_k8s?user=root&password=root&allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+              value: jdbc:mysql://mysql-db/students_k8s?user=root2&password=root&allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
           startupProbe:
             httpGet:
               path: /actuator/health
