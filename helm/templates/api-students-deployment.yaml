@@ -34,18 +34,18 @@ spec:
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 35
+            initialDelaySeconds: 70
           livenessProbe:
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 40
+            initialDelaySeconds: 75
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 40
+            initialDelaySeconds: 75
             periodSeconds: 5
           resources:
             requests: # Cuanto le debo garantizar a cada pod
