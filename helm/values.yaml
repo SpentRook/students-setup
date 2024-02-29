@@ -4,7 +4,7 @@
 
 replicaCount: 1
 
-version: 1.0.0-36d27e9
+version: release-1.0.0
 
 image:
   repository: nginx
