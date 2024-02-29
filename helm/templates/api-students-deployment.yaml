@@ -22,6 +22,14 @@ spec:
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:mysql://mysql-db/students_k8s?user=root&password=root&allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+              name: DB_HOST
+              value: mysql-db
+              name: DB_PORT
+              value: "3306"
+              name: DB_NAME
+              value: students_k8s
+              name: DB_PASSWORD
+              value: root
           startupProbe:
             httpGet:
               path: /actuator/health
